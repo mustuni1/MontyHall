@@ -7,7 +7,7 @@
     <style type="text/css">
     body {
         min-height: 100%;
-        background-color: #1abc9c;
+        background-color: #2ecc71;
     }
     
     .heading {
@@ -60,6 +60,7 @@
         document.getElementById('initialSettings').style.display = "none";
         possibilities.splice(possibilities.indexOf(number), 1);
         document.getElementById('newSettings').style.display = "block";
+         document.getElementById('yourChoice').innerHTML = "You chose door " + number;
         if (Math.random() < 0.5) {
             filename = 'open' + possibilities[0];
             document.getElementById(filename).style.display = "inline";
@@ -110,7 +111,7 @@
     </script>
 </head>
 
-<body style="background-color: #2ecc71">
+<body>
     <div class="heading">
         <h1>The Monty Hall Problem</h1>
     	<button type="button" class="btn btn-default btn-lg" onclick="reset()" style="float: center">Reset</button>
@@ -128,6 +129,7 @@
         </button>
     </div>
     <div class="interactive" id="newSettings" class="newSettings">
+        <p id="yourChoice"></p>
         <img src="images/open1.png" id="open1" class="picture" style="display:none">
         <img src="images/open2.png" id="open2" class="picture" style="display:none">
         <img src="images/open3.png" id="open3" class="picture" style="display:none">
@@ -140,8 +142,8 @@
         </button>
     </div>
     <div class="interactive" id="result">
-        <img class="winbanner" id="winbanner" src="loss.png" style="display:none">
-        <img class="losebanner" id="losebanner" src="win.png" style="display:none">
+        <img class="winbanner" id="winbanner" src="images/loss.png" style="display:none">
+        <img class="losebanner" id="losebanner" src="images/win.png" style="display:none">
     </div>
 </body>
 </html>
