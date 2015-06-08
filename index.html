@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>The Monty Hall Problem</title>
     <link rel="icon" type="image/png" href="/images/favicon.png" />
@@ -49,13 +50,6 @@
     var possibilities = [1, 2, 3];
     var rand = Math.random();
     var winner = possibilities[Math.floor(rand * 3)]
-    // var winner = 1;
-    // if (rand > 0.33 && rand < 0.66) {
-    //     winner = 2;
-    // } else if (rand > 0.66) {
-    //     winner = 3;
-    // };
-    // console.log(winner)
 
     function submitGuess(number) {
         myGuess = number;
@@ -65,8 +59,7 @@
             possibilities.splice(possibilities.indexOf(winner), 1);
             filename = 'open' + possibilities[0];
             document.getElementById(filename).style.display = "inline";
-        }
-        else {
+        } else {
             if (Math.random() < 0.5) {
                 filename = 'open' + possibilities[0];
                 document.getElementById(filename).style.display = "inline";
@@ -76,14 +69,7 @@
             };
         };
         document.getElementById('newSettings').style.display = "block";
-         document.getElementById('yourChoice').innerHTML = "You chose door " + number;
-        // if (Math.random() < 0.5) {
-        //     filename = 'open' + possibilities[0];
-        //     document.getElementById(filename).style.display = "inline";
-        // } else {
-        //     filename = 'open' + possibilities[1];
-        //     document.getElementById(filename).style.display = "inline";
-        // };
+        document.getElementById('yourChoice').innerHTML = "You chose door " + number;
     };
 
     function makeDecision(sOrS) {
@@ -105,26 +91,19 @@
     }
 
     function reset() {
-    	myGuess = -1;
-    	possibilities = [1, 2, 3];
-    	rand = Math.random();
+        myGuess = -1;
+        possibilities = [1, 2, 3];
+        rand = Math.random();
         winner = possibilities[Math.floor(rand * 3)]
-    	// winner = 1;
-	    // if (rand > 0.33 && rand < 0.66) {
-	    //     winner = 2;
-	    // } else if (rand > 0.66) {
-	    //     winner = 3;
-	    // };
-        // console.log(winner)
 
-	    document.getElementById('open1').style.display = "none";
-	    document.getElementById('open2').style.display = "none";
-	    document.getElementById('open3').style.display = "none";
-	    document.getElementById('newSettings').style.display = "none";
-	    document.getElementById('result').style.display = "none";
-	    document.getElementById('winbanner').style.display = "none";
-	    document.getElementById('losebanner').style.display = "none";
-	    document.getElementById('initialSettings').style.display = "block";
+        document.getElementById('open1').style.display = "none";
+        document.getElementById('open2').style.display = "none";
+        document.getElementById('open3').style.display = "none";
+        document.getElementById('newSettings').style.display = "none";
+        document.getElementById('result').style.display = "none";
+        document.getElementById('winbanner').style.display = "none";
+        document.getElementById('losebanner').style.display = "none";
+        document.getElementById('initialSettings').style.display = "block";
     }
     </script>
 </head>
@@ -132,7 +111,7 @@
 <body>
     <div class="heading">
         <h1>The Monty Hall Problem</h1>
-    	<button type="button" class="btn btn-default btn-lg" onclick="reset()" style="float: center">Reset</button>
+        <button type="button" class="btn btn-default btn-lg" onclick="reset()" style="float: center">Reset</button>
     </div>
     <div class="interactive" id="initialSettings" style="text-align:center">
         <img src="images/doors.png" id="initialDoors" class="picture">
@@ -164,4 +143,5 @@
         <img class="losebanner" id="losebanner" src="images/loss.png" style="display:none">
     </div>
 </body>
+
 </html>
