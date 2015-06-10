@@ -44,8 +44,13 @@
         text-align: center;
         display: none;
     }
+
+    .td {
+        padding: 5px 10px 5px 10px;
+    }
     </style>
     <script type="text/javascript">
+    var winsLosses = [0, 0, 0, 0] // switchWin, switchLoss, stayWin, stayLoss
     var myGuess = -1;
     var possibilities = [1, 2, 3];
     var rand = Math.random();
@@ -77,17 +82,26 @@
         document.getElementById('result').style.display = "block";
         if (sOrS == 'stay') {
             if (myGuess == winner) {
+                winsLosses[2]++;
                 document.getElementById('winbanner').style.display = "inline";
             } else {
+                winsLosses[3]++;
                 document.getElementById('losebanner').style.display = "inline";
             };
         } else {
             if (myGuess == winner) {
+                winsLosses[1]++;
                 document.getElementById('losebanner').style.display = "inline";
             } else {
+                winsLosses[0]++;
                 document.getElementById('winbanner').style.display = "inline";
             };
         };
+        // switchWin, switchLoss, stayWin, stayLoss
+        document.getElementById('switchWin').innerHTML = winsLosses[0];
+        document.getElementById('switchLoss').innerHTML = winsLosses[1];
+        document.getElementById('stayWin').innerHTML = winsLosses[2];
+        document.getElementById('stayLoss').innerHTML = winsLosses[3];
     }
 
     function reset() {
@@ -111,7 +125,6 @@
 <body>
     <div class="heading">
         <h1>The Monty Hall Problem</h1>
-        <button type="button" class="btn btn-default btn-lg" onclick="reset()" style="float: center">Reset</button>
     </div>
     <div class="interactive" id="initialSettings" style="text-align:center">
         <img src="images/doors.png" id="initialDoors" class="picture">
@@ -141,6 +154,26 @@
     <div class="interactive" id="result">
         <img class="winbanner" id="winbanner" src="images/win.png" style="display:none">
         <img class="losebanner" id="losebanner" src="images/loss.png" style="display:none">
+        </br></br>
+        <table style="margin: auto" border="2px" border-color="#c0392b">
+            <tr>
+                <td class="td"></td>
+                <td class="td">Wins</td>
+                <td class="td">Losses</td>
+            </tr>
+            <tr>
+                <td class="td">Stay</td>
+                <td id="stayWin" class="td"></td>
+                <td id="stayLoss" class="td"></td>
+            </tr>
+            <tr>
+                <td class="td">Switch</td>
+                <td id="switchWin" class="td"></td>
+                <td id="switchLoss" class="td"></td>
+            </tr>
+        </table>
+        </br>
+        <button type="button" class="btn btn-default btn-lg" onclick="reset()" style="float: center">Reset</button>
     </div>
 </body>
 
